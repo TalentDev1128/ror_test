@@ -12,7 +12,13 @@ class TriggerController < ApplicationController
   end
 
   def send_event_to_redis
-    RedisEventWorker.perform_async
+    current_time = Time.now
+    last_request_time = Datetime.last&.last_request_time
+
+    if last_request_time.nil? || current_time - last_request_time > 60
+      RedisEventWorker.perform_async
+      Datetime.create(last_request_time: current_time)
+    end
   end
 end
 
