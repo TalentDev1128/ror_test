@@ -1,0 +1,5 @@
+:schedule:
+  send_event_to_redis:
+    cron: '*/1 * * * *'
+    class: 'RedisEventWorker'
+    queue: default

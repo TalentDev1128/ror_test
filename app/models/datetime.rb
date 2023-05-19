@@ -1,0 +1,2 @@
+class Datetime < ApplicationRecord
+end

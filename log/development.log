@@ -1,0 +1,418 @@
+Started GET "/" for ::1 at 2023-05-19 11:16:29 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/alpha/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/alpha/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.5ms | Allocations: 636)
+Completed 200 OK in 19ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 5114)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:16:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/trigger"):
+  
+Started GET "/trigger" for ::1 at 2023-05-19 11:18:15 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+Completed 500 Internal Server Error in 12ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 5000)
+
+
+  
+NameError (uninitialized constant TriggerController::Datetime
+
+    Datetime.create(last_request_time: Time.now)
+    ^^^^^^^^
+Did you mean?  DateTime):
+  
+app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+app/controllers/trigger_controller.rb:4:in `index'
+Started GET "/trigger" for ::1 at 2023-05-19 11:19:47 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+Completed 500 Internal Server Error in 6ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 4074)
+
+
+  
+NoMethodError (undefined method `create' for DateTime:Class
+
+    DateTime.create(last_request_time: Time.now)
+            ^^^^^^^):
+  
+app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+app/controllers/trigger_controller.rb:4:in `index'
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDatetimes (20230519152217)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "datetimes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "last_request_time" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230519152217"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-05-19 15:22:24.422330"], ["updated_at", "2023-05-19 15:22:24.422330"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/trigger" for ::1 at 2023-05-19 11:22:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:22:47.111292"], ["created_at", "2023-05-19 15:22:47.117151"], ["updated_at", "2023-05-19 15:22:47.117151"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 500 Internal Server Error in 48ms (Views: 2.5ms | ActiveRecord: 1.9ms | Allocations: 11455)
+
+
+  
+RedisClient::UnsupportedServer (redis-client requires Redis 6+ with HELLO command available (redis://localhost:6379/0)):
+  
+app/controllers/trigger_controller.rb:15:in `send_event_to_redis'
+app/controllers/trigger_controller.rb:5:in `index'
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:34.082799"], ["created_at", "2023-05-19 15:26:34.093444"], ["updated_at", "2023-05-19 15:26:34.093444"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 500 Internal Server Error in 31ms (Views: 4.6ms | ActiveRecord: 2.5ms | Allocations: 11415)
+
+
+  
+RedisClient::UnsupportedServer (redis-client requires Redis 6+ with HELLO command available (redis://localhost:6379/0)):
+  
+app/controllers/trigger_controller.rb:15:in `send_event_to_redis'
+app/controllers/trigger_controller.rb:5:in `index'
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:38 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:38.361856"], ["created_at", "2023-05-19 15:26:38.362286"], ["updated_at", "2023-05-19 15:26:38.362286"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 2.9ms | Allocations: 2341)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:40 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.8ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:40.778519"], ["created_at", "2023-05-19 15:26:40.778831"], ["updated_at", "2023-05-19 15:26:40.778831"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 2094)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:41 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (1.1ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:41.512550"], ["created_at", "2023-05-19 15:26:41.512747"], ["updated_at", "2023-05-19 15:26:41.512747"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 2094)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:41 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:41.700131"], ["created_at", "2023-05-19 15:26:41.700448"], ["updated_at", "2023-05-19 15:26:41.700448"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:41 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:41.874453"], ["created_at", "2023-05-19 15:26:41.874708"], ["updated_at", "2023-05-19 15:26:41.874708"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.036394"], ["created_at", "2023-05-19 15:26:42.036689"], ["updated_at", "2023-05-19 15:26:42.036689"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.194824"], ["created_at", "2023-05-19 15:26:42.195158"], ["updated_at", "2023-05-19 15:26:42.195158"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.361345"], ["created_at", "2023-05-19 15:26:42.361885"], ["updated_at", "2023-05-19 15:26:42.361885"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.514895"], ["created_at", "2023-05-19 15:26:42.515097"], ["updated_at", "2023-05-19 15:26:42.515097"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.671335"], ["created_at", "2023-05-19 15:26:42.671520"], ["updated_at", "2023-05-19 15:26:42.671520"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2079)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.828546"], ["created_at", "2023-05-19 15:26:42.829437"], ["updated_at", "2023-05-19 15:26:42.829437"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 2.3ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:42 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:42.986644"], ["created_at", "2023-05-19 15:26:42.986843"], ["updated_at", "2023-05-19 15:26:42.986843"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:43 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:43.156275"], ["created_at", "2023-05-19 15:26:43.156551"], ["updated_at", "2023-05-19 15:26:43.156551"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:45 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.5ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:45.640191"], ["created_at", "2023-05-19 15:26:45.640442"], ["updated_at", "2023-05-19 15:26:45.640442"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2094)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:26:46 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:26:46.535642"], ["created_at", "2023-05-19 15:26:46.535841"], ["updated_at", "2023-05-19 15:26:46.535841"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2076)
+
+
+Started GET "/" for ::1 at 2023-05-19 11:31:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/alpha/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/alpha/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 528)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 3771)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:27 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 10)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:27.138945"], ["created_at", "2023-05-19 15:31:27.145326"], ["updated_at", "2023-05-19 15:31:27.145326"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 500 Internal Server Error in 15ms (Views: 1.3ms | ActiveRecord: 1.7ms | Allocations: 9771)
+
+
+  
+RedisClient::UnsupportedServer (redis-client requires Redis 6+ with HELLO command available (redis://localhost:6379/0)):
+  
+app/controllers/trigger_controller.rb:15:in `send_event_to_redis'
+app/controllers/trigger_controller.rb:5:in `index'
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:56 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:56.213726"], ["created_at", "2023-05-19 15:31:56.214262"], ["updated_at", "2023-05-19 15:31:56.214262"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 2333)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:57 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.1ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:57.441299"], ["created_at", "2023-05-19 15:31:57.441836"], ["updated_at", "2023-05-19 15:31:57.441836"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2081)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:57 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:57.905455"], ["created_at", "2023-05-19 15:31:57.905789"], ["updated_at", "2023-05-19 15:31:57.905789"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:58 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:58.090404"], ["created_at", "2023-05-19 15:31:58.091439"], ["updated_at", "2023-05-19 15:31:58.091439"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 2079)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:58 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:58.439805"], ["created_at", "2023-05-19 15:31:58.439968"], ["updated_at", "2023-05-19 15:31:58.439968"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2094)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:58 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:58.608019"], ["created_at", "2023-05-19 15:31:58.608515"], ["updated_at", "2023-05-19 15:31:58.608515"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 2076)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:58 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:58.926693"], ["created_at", "2023-05-19 15:31:58.926867"], ["updated_at", "2023-05-19 15:31:58.926867"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2096)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 11:31:59 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.8ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 15:31:59.083453"], ["created_at", "2023-05-19 15:31:59.083698"], ["updated_at", "2023-05-19 15:31:59.083698"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.6ms | Allocations: 2076)
+
+

@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_request_time: 2023-05-19 11:22:17
+
+two:
+  last_request_time: 2023-05-19 11:22:17
