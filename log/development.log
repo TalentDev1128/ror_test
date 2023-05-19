@@ -9052,3 +9052,129 @@ Processing by TriggerController#index as */*
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2600)
 
 
+Started GET "/trigger" for ::1 at 2023-05-19 12:56:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.3ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 16:56:44.454747"], ["created_at", "2023-05-19 16:56:44.465035"], ["updated_at", "2023-05-19 16:56:44.465035"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/trigger_controller.rb:16:in `send_event_to_redis'
+Completed 200 OK in 25ms (Views: 2.3ms | ActiveRecord: 2.5ms | Allocations: 11444)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 12:56:45 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.2ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 16:56:45.622530"], ["created_at", "2023-05-19 16:56:45.622766"], ["updated_at", "2023-05-19 16:56:45.622766"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/trigger_controller.rb:16:in `send_event_to_redis'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 2843)
+
+
+Started GET "/trigger" for ::1 at 2023-05-19 12:56:46 -0400
+Processing by TriggerController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Create (0.5ms)[0m  [1m[32mINSERT INTO "datetimes" ("last_request_time", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["last_request_time", "2023-05-19 16:56:46.565645"], ["created_at", "2023-05-19 16:56:46.565970"], ["updated_at", "2023-05-19 16:56:46.565970"]]
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trigger_controller.rb:11:in `save_datetime_to_database'
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/trigger_controller.rb:16:in `send_event_to_redis'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 2612)
+
+
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" ORDER BY "datetimes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/workers/redis_event_worker.rb:5:in `perform'
